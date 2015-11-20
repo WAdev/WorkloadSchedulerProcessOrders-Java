@@ -16,8 +16,7 @@ applications:
   - sendgrid-email
   - workload-scheduler
   memory: 512M
-  buildpack: php 4.1.5
-  command: bundle exec rake package
+  path: WorkloadSchedulerProcessOrders.war
   instances: 1
   domain: mybluemix.net
   disk_quota: 1024M
