@@ -16,7 +16,7 @@ applications:
   - sendgrid-email
   - workload-scheduler
   memory: 512M
-  path: WorkloadSchedulerProcessOrders.war
+  path: WorkloadSchedulerProcessOrders-Java.war
   instances: 1
   domain: mybluemix.net
   disk_quota: 1024M
