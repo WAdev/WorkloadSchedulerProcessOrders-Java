@@ -17,7 +17,7 @@ applications:
   - workload-scheduler
   memory: 512M
   buildpack: php 4.1.5
-  command: $HOME/.bp/bin/start
+  command: bundle exec rake package
   instances: 1
   domain: mybluemix.net
   disk_quota: 1024M
