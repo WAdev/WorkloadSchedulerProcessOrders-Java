@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project basedir="." default="build" name="SingleTriggerSample">
+<project basedir="." default="build" name="WorkloadSchedulerProcessOrders">
     <property environment="env"/>
     <property name="srcDir" value="."/>
     <property name="debuglevel" value="source,lines,vars"/>
