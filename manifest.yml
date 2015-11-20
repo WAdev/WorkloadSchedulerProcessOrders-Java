@@ -18,4 +18,4 @@ applications:
   instances: 1
   domain: mybluemix.net
   disk_quota: 1024M
-buildpack: https://github.com/WAdev/WorkloadSchedulerProcessOrders-Java
+buildpack: WorkloadSchedulerProcessOrders-Java
