@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="build" name="SingleTriggerSample">
+    <property environment="env"/>
+    <property name="srcDir" value="."/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="classpathDir">
+        <pathelement location="bin"/>
+        <pathelement location="WebContent/WEB-INF/lib/jsr311-api-1.1.1.jar"/>
+    	<pathelement location="WebContent/WEB-INF/lib/wink-1.2.1-incubating.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/twaclient.jar"/>
+    	<pathelement location="WebContent/WEB-INF/lib/tdwcsimpleui_public.jar"/>
+    	<pathelement location="WebContent/WEB-INF/lib/tdwccronparser.jar"/>
+    	<pathelement location="WebContent/WEB-INF/lib/cloudant-client-1.2.3.jar"/>
+    	<pathelement location="WebContent/WEB-INF/lib/gson-2.4.jar"/>
+    	<pathelement location="WebContent/WEB-INF/lib/sendgrid-java-1.2.1.jar"/>
+    	<pathelement location="WebContent/WEB-INF/lib/smtpapi-java-1.2.0.jar"/>
+    	<pathelement location="WebContent/WEB-INF/lib/java-json.jar"/>
+    	<pathelement location="WebContent/WEB-INF/lib/httpclient-4.3.3.jar"/>
+    	<pathelement location="WebContent/WEB-INF/lib/httpmime-4.3.jar"/>
+    	<pathelement location="WebContent/WEB-INF/lib/slf4j-api.jar"/>
+    	<pathelement location="WebContent/WEB-INF/lib/slf4j-simple-1.6.1.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target name="build" depends="build-project,build-war"/>
+    <target name="cleanall" depends="clean"/>
+    <target name="build-project" depends="clean,init">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}"
+		includeantruntime="false">
+            <src path="src"/>
+            <classpath refid="classpathDir"/>
+        </javac>
+    </target>
+ 
+   <target name="build-war" depends="build-project">
+	  <war destfile="WorkloadSchedulerProcessOrders-Java.war" webxml="WebContent/WEB-INF/web.xml">
+	  	<webinf dir="WebContent/WEB-INF">
+	  		<include name="resources"/>
+	    </webinf>
+	  	<fileset dir="WebContent">
+	  		<include name="*.jsp"/>
+	  		<include name="style.css"/>
+	    </fileset>
+	  	<lib dir="WebContent/WEB-INF/lib"/>
+	  	<classes dir="bin"/>
+	  </war>
+   </target>
+
+</project>
