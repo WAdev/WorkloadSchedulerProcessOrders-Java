@@ -1,4 +1,15 @@
 ---
+applications:
+- name: WorkloadSchedulerProcessOrders-Java
+  memory: 512M
+  path: WorkloadSchedulerProcessOrders-Java.war
+  buildpack: https://github.com/cloudfoundry/ibm-websphere-liberty-buildpack
+  host: WorkloadSchedulerProcessOrders-Java
+  domain: mybluemix.net
+  services:
+  - cloudant-nosql-db
+  - sendgrid-email
+  - workload-scheduler
 declared-services:
   cloudant-nosql-db:
     label: cloudantNoSQLDB
@@ -8,16 +19,4 @@ declared-services:
     plan: free
   workload-scheduler:
     label: WorkloadScheduler
-    plan: Standard    
-applications:
-- name: WorkloadSchedulerProcessOrders
-  services:
-  - cloudant-nosql-db
-  - sendgrid-email
-  - workload-scheduler
-  memory: 512M
-  path: WorkloadSchedulerProcessOrders-Java.war
-  instances: 1
-  domain: mybluemix.net
-  disk_quota: 1024M
-  buildpack: https://github.com/cloudfoundry/ibm-websphere-liberty-buildpack
+    plan: Standard
