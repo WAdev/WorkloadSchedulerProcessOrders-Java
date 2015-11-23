@@ -3,7 +3,7 @@ applications:
 - name: WorkloadSchedulerProcessOrders-Java
   memory: 512M
   path: WorkloadSchedulerProcessOrders-Java.war
-  buildpack: https://github.com/cloudfoundry/ibm-websphere-liberty-buildpack
+  buildpack: https://github.com/cloudfoundry/ibm-websphere-liberty-buildpack.git
   host: WorkloadSchedulerProcessOrders-Java
   domain: mybluemix.net
   services:
