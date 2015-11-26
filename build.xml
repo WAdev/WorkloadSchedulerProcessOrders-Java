@@ -9,6 +9,7 @@
     <condition property="ARCHIVE_DIR" value="${env.ARCHIVE_DIR}" else=".">
     	<isset property="env.ARCHIVE_DIR" />
     </condition>
+    <property name="warname" value="WorkloadSchedulerProcessOrders-Java.war"/>
     <path id="classpathDir">
         <pathelement location="bin"/>
         <pathelement location="WebContent/WEB-INF/lib/jsr311-api-1.1.1.jar"/>
@@ -31,10 +32,14 @@
     </target>
     <target name="clean">
         <delete dir="bin"/>
+        <delete file="${ARCHIVE_DIR}/${warname}" />
     </target>
     <target name="build" depends="build-project,build-war"/>
     <target name="cleanall" depends="clean"/>
     <target name="build-project" depends="clean,init">
+    	<copy todir="${ARCHIVE_DIR}">
+    		<fileset file="manifest.yml" />
+    	</copy> 
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}"
 		includeantruntime="false">
@@ -44,14 +49,17 @@
     </target>
  
    <target name="build-war" depends="build-project">
-	  <war destfile="WorkloadSchedulerProcessOrders-Java.war" webxml="WebContent/WEB-INF/web.xml">
+	  <war destfile="${ARCHIVE_DIR}/${warname}" webxml="WebContent/WEB-INF/web.xml">
 	  	<webinf dir="WebContent/WEB-INF">
 	  		<include name="resources"/>
-	    </webinf>
-	  	<fileset dir="WebContent">
-	  		<include name="*.jsp"/>
-	  		<include name="style.css"/>
-	    </fileset>
+	  	</webinf>
+	    	<fileset dir="WebContent">
+	  		<include name="**/*"/>
+	  		<exclude name="**/*.class"/>
+		</fileset>
+		<fileset dir="dep-jar"> 
+        		<include name="*.jar"/>
+            	</fileset>
 	  	<lib dir="WebContent/WEB-INF/lib"/>
 	  	<classes dir="bin"/>
 	  </war>
