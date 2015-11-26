@@ -26,6 +26,9 @@
     	<pathelement location="WebContent/WEB-INF/lib/httpmime-4.3.jar"/>
     	<pathelement location="WebContent/WEB-INF/lib/slf4j-api.jar"/>
     	<pathelement location="WebContent/WEB-INF/lib/slf4j-simple-1.6.1.jar"/>
+    	<fileset dir="dep-jar"> 
+        	<include name="*.jar"/>
+        </fileset>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -57,9 +60,6 @@
 	  		<include name="**/*"/>
 	  		<exclude name="**/*.class"/>
 		</fileset>
-		<fileset dir="dep-jar"> 
-        		<include name="*.jar"/>
-            	</fileset>
 	  	<lib dir="WebContent/WEB-INF/lib"/>
 	  	<classes dir="bin"/>
 	  </war>
