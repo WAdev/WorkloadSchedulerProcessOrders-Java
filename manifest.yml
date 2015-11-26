@@ -9,8 +9,10 @@ declared-services:
   label: sendgrid
   plan: free
 applications:
- buildpack: liberty-for-java
 - services:
   - cloudant-nosql-db
   - workload-scheduler
   - sendgrid-email
+- buildpack: liberty-for-java
+  instances: 1
+  domain: mybluemix.net
