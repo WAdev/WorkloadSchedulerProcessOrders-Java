@@ -13,6 +13,6 @@ applications:
   - cloudant-nosql-db
   - workload-scheduler
   - sendgrid-email
-- buildpack: liberty-for-java
+- path: WorkloadSchedulerProcessOrders-Java.war
   instances: 1
   domain: mybluemix.net
