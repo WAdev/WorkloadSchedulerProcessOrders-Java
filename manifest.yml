@@ -11,5 +11,5 @@ declared-services:
 applications:
 - services:
   - cloudant-nosql-db
-  - sendgrid-email
+  - sendgrid
   - workload-scheduler
