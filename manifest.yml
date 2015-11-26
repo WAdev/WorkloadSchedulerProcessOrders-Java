@@ -1,15 +1,15 @@
 declared-services:
-  cloudant-nosql-db:
-   label: cloudantNoSQLDB
-   plan: Shared
-  workload-scheduler:
-   label: WorkloadScheduler
-   plan: Standard
-  sendgrid:
-   label: sendgrid
-   plan: free
+ cloudant-nosql-db:
+  label: cloudantNoSQLDB
+  plan: Shared
+ workload-scheduler:
+  label: WorkloadScheduler
+  plan: Standard
+ sendgrid-email:
+  label: sendgrid
+  plan: free
 applications:
 - services:
   - cloudant-nosql-db
-  - sendgrid
   - workload-scheduler
+  - sendgrid-email
