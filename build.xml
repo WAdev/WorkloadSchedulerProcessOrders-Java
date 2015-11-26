@@ -50,19 +50,15 @@
             <classpath refid="classpathDir"/>
         </javac>
     </target>
- 
-   <target name="build-war" depends="build-project">
+    
+    <target name="build-war" depends="build-project">
 	  <war destfile="${ARCHIVE_DIR}/${warname}" webxml="WebContent/WEB-INF/web.xml">
-	  	<webinf dir="WebContent/WEB-INF">
-	  		<include name="resources"/>
-	  	</webinf>
-	    	<fileset dir="WebContent">
+	  	<classes dir="bin"/>
+	  	<fileset dir="WebContent">
 	  		<include name="**/*"/>
 	  		<exclude name="**/*.class"/>
-		</fileset>
-	  	<lib dir="WebContent/WEB-INF/lib"/>
-	  	<classes dir="bin"/>
+	  	</fileset>
 	  </war>
-   </target>
+     </target>
 
 </project>
