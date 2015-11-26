@@ -13,6 +13,9 @@ import java.net.MalformedURLException;
 import java.util.List;
 import java.util.TimeZone;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.ibm.twa.applab.client.WorkloadService;
 import com.ibm.twa.applab.client.exceptions.InvalidRuleException;
 import com.ibm.twa.applab.client.exceptions.WorkloadServiceException;
@@ -27,8 +30,8 @@ import com.ibm.tws.simpleui.bus.Trigger;
 public class WorkloadSchedulerManager extends Manager{
 	
     final static String workloadServiceName = "WorkloadScheduler";
-    final static String processLibraryName = "stjs";
-    final static String processName = "SingleTriggerJavaSample";
+    final static String processLibraryName = "wslib";
+    final static String processName = "wspo";
     
 	private boolean debugMode;
 	
@@ -140,7 +143,7 @@ public class WorkloadSchedulerManager extends Manager{
 				this.agentName = prefix + "_CLOUD";
 				
 				// Set the Restful URL 
-				String url = "http://www.singletriggerjavasample.mybluemix.net/api/sendemail/";
+				String url = "http://" + this.getAppURI() + "/api/sendemail/";
 				// Create the RestfulStep object
 				RestfulStep restStep = new RestfulStep(agentName, url, "application/json", "application/json", RestfulStep.GET_METHOD);
 				// Add the RestfulStep to the Workload Automation Process 			
@@ -177,6 +180,17 @@ public class WorkloadSchedulerManager extends Manager{
 		} else {
 			System.out.println("Service not connected, please try again");
 		}
+	}
+	
+	public String getAppURI() {
+		String uri = null;
+		String vcapJSONString = System.getenv("VCAP_APPLICATION");
+		if (vcapJSONString != null) {
+			JsonObject app = new JsonParser().parse(vcapJSONString).getAsJsonObject();
+			JsonArray uris = app.get("application_uris").getAsJsonArray();
+			uri = uris.get(0).getAsString();
+		}
+		return uri;
 	}
 	
 	public WorkloadService getWs() {
