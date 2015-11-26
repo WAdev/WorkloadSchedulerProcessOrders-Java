@@ -6,6 +6,9 @@
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
+    <condition property="ARCHIVE_DIR" value="${env.ARCHIVE_DIR}" else=".">
+    	<isset property="env.ARCHIVE_DIR" />
+    </condition>
     <path id="classpathDir">
         <pathelement location="bin"/>
         <pathelement location="WebContent/WEB-INF/lib/jsr311-api-1.1.1.jar"/>
