@@ -1,8 +1,3 @@
-applications:
-- services:
-  - cloudant-nosql-db
-  - sendgrid-email
-  - workload-scheduler
 declared-services:
   cloudant-nosql-db:
     label: cloudantNoSQLDB
@@ -13,3 +8,8 @@ declared-services:
   workload-scheduler:
     label: WorkloadScheduler
     plan: Standard
+applications:
+- services:
+  - cloudant-nosql-db
+  - sendgrid-email
+  - workload-scheduler
