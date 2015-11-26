@@ -1,9 +1,6 @@
 ---
 applications:
   path: WorkloadSchedulerProcessOrders-Java.war
-  domain: mybluemix.net
-  buildpack: liberty-for-java
-  command: server run
   services:
   - cloudant-nosql-db
   - sendgrid-email
