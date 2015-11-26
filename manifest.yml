@@ -13,4 +13,4 @@ applications:
   - cloudant-nosql-db
   - workload-scheduler
   - sendgrid-email
- path: WorkloadSchedulerProcessOrders-Java.war
+ buildpack: liberty-for-java
