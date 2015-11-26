@@ -1,10 +1,6 @@
 ---
 applications:
-- name: WorkloadSchedulerProcessOrders-Java
-  memory: 512M
   path: WorkloadSchedulerProcessOrders-Java.war
-  buildpack: file:///var/vcap/data/dea_next/admin_buildpacks/ee88f28c-4afb-47c3-bc0f-db9ddc1ebb1d_6cbec4f53c789b674bc4f011895cfb0f72c4d3e0/dependencies/https___pivotal-buildpacks.s3.amazonaws.com_concourse-binaries_php_php-5.5.30-linux-x64-1444147920.tgz
-  host: WorkloadSchedulerProcessOrders-Java
   domain: mybluemix.net
   services:
   - cloudant-nosql-db
