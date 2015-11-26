@@ -1,8 +1,5 @@
----
 applications:
-  buildpack: liberty-for-java_v2_0-20150914-1535
-  command: .liberty/initial_startup.rb
-  services:
+- services:
   - cloudant-nosql-db
   - sendgrid-email
   - workload-scheduler
