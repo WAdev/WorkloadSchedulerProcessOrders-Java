@@ -1,6 +1,8 @@
 ---
 applications:
   path: WorkloadSchedulerProcessOrders-Java.war
+  buildpack: liberty-for-java_v2_0-20150914-1535
+  command: .liberty/initial_startup.rb
   services:
   - cloudant-nosql-db
   - sendgrid-email
