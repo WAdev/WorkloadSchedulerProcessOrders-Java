@@ -13,10 +13,8 @@ applications:
   - cloudant-nosql-db
   - workload-scheduler
   - sendgrid-email
-- path: WorkloadSchedulerProcessOrders-Java.war
+- path: .
   instances: 1
   domain: mybluemix.net
   memory: 512M
   disk_quota: 1024M
-  buildpack: liberty-for-java
-  command: .liberty/initial_startup.rb
