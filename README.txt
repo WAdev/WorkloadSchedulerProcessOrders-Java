@@ -1,12 +1,12 @@
-Java Hello World Web Starter
+Workload Scheduler Process Orders - Java
 
 This sample application demonstrates how to write a Java Web application (powered by WebSphere Liberty) and deploy it on Bluemix.
 
 Files
 
-The Java Hello World Web Starter application contains the following contents:
+The Workload Scheduler Process Orders application contains the following contents:
 
-*   javaHelloWorldApp.war
+*   WorkloadSchedulerProcessOrders-Java.war
 
     This WAR file is actually the application itself. It is the only file that'll be pushed to and run on the Bluemix cloud. Every time your application code is updated, you'll need to regenerate this WAR file and push to Bluemix again. See the next section on detailed steps.
     
@@ -16,7 +16,7 @@ The Java Hello World Web Starter application contains the following contents:
     
 *   src/
 
-    This directory contains the server side code (JAVA) of your application. In this simple starter application, there's only one class: 'com.ibm.cloudoe.samples.HelloResource'
+    This directory contains the server side code (JAVA) of your application.
     
 *   build.xml
 
