@@ -16,3 +16,4 @@ applications:
 - path: WorkloadSchedulerProcessOrders-Java.war
   instances: 1
   domain: mybluemix.net
+  memory: 512M
