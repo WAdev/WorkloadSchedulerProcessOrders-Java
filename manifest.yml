@@ -13,7 +13,7 @@ applications:
   - cloudant-nosql-db
   - workload-scheduler
   - sendgrid-email
-- path: .
+  path: WorkloadSchedulerProcessOrders-Java.war
   instances: 1
   domain: mybluemix.net
   memory: 512M
