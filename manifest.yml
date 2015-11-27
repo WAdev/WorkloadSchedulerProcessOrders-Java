@@ -19,3 +19,4 @@ applications:
   memory: 512M
   disk_quota: 1024M
   buildpack: liberty-for-java
+  command: .liberty/initial_startup.rb
