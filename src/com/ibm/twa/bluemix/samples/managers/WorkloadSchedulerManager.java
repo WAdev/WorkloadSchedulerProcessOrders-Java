@@ -31,7 +31,7 @@ public class WorkloadSchedulerManager extends Manager{
 	
     final static String workloadServiceName = "WorkloadScheduler";
     final static String processLibraryName = "wslib";
-    final static String processName = "wspo";
+    final static String processName = "wspoj";
     
 	private boolean debugMode;
 	
