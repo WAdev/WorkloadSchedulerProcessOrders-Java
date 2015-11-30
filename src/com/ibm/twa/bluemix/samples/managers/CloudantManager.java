@@ -23,7 +23,7 @@ import com.ibm.twa.bluemix.samples.helpers.Submission;
 public class CloudantManager extends Manager {
 	
 	final static String cloudantServiceName = "cloudantNoSQLDB";
-	final static String cloudantDatabaseName = "single-trigger-java-sample";
+	final static String cloudantDatabaseName = "wspoj";
 
     private Database db;
     private String subId;
