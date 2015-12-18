@@ -22,10 +22,10 @@ public abstract class Manager {
 	
 	private String serviceName;
 	private boolean connected 	= false;
-	private String url			= null;
-    private String user 		= null;
-    private String password 	= null;
-	private String host			= null;
+	private String url		= null;
+    	private String user 		= null;
+    	private String password 	= null;
+	private String host		= null;
 	private int port;
 		
 	public Manager(String serviceName){
@@ -44,10 +44,25 @@ public abstract class Manager {
 	public void initConnection() throws JSONException {
 		if (System.getenv("VCAP_SERVICES") == null) 
 		{
-	        this.host = "xxx-bluemix.cloudant.com";
-			this.user = "xxx-bluemix";
-			this.password = "xxx";
-			this.url = "https://xxx-bluemix:xxx7@xxx-bluemix.cloudant.com";
+			switch(this.serviceName){
+				case "cloudantNoSQLDB": 
+						this.user 	= "your Cloudant user";
+						this.host	= "your Cloudant host";
+						this.password	= "your Cloudant password";
+						this.url	= "your Cloudant url";
+						this.port	= 0;
+						break;
+				case "WorkloadScheduler":
+						this.user 	= "your IWS user";
+						this.password	= "your IWS password";
+						this.url	= "your IWS url";
+						break;
+				case "sendgrid":
+						this.user 	= "your Sendgrid user";
+						this.password	= "your Sendgrid password";
+						this.host	= "your Sendgrid host";
+						break;
+			}
 		} 
 		else 
 		{
